@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+*.Rcheck/
+*.tar.gz
+reference/*.txt
+reference/*.png
+reference/*.pdf
+Third Chapter Stage2 Sim.py
+artifacts/
+.Rhistory
+.RData
+*.log
+*.smcl
+python/ccctest-*/
