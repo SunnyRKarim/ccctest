@@ -1,0 +1,46 @@
+name: Unpack uploaded ccctest release
+on:
+  push:
+    paths:
+      - '.github/workflows/unpack-upload.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract archived package into repository
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from zipfile import ZipFile
+          import stat
+          archive = Path("ccctest-SunnyRKarim-upload-verified.zip")
+          if not archive.is_file():
+              raise SystemExit("Expected ZIP release archive not found")
+          with ZipFile(archive) as zf:
+              files = [i for i in zf.infolist() if not i.is_dir()]
+              if len(files) < 90:
+                  raise SystemExit("Release ZIP unexpectedly small")
+              for entry in files:
+                  name = PurePosixPath(entry.filename)
+                  if name.is_absolute() or ".." in name.parts or "\\" in entry.filename:
+                      raise SystemExit(f"Unsafe archive path: {entry.filename}")
+                  if stat.S_ISLNK((entry.external_attr >> 16) & 0xffff):
+                      raise SystemExit(f"Symlink rejected: {entry.filename}")
+              zf.extractall(".")
+          archive.unlink()
+          PY
+      - name: Commit unpacked release
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish extracted ccctest package" || exit 0
+          git push origin HEAD:main
