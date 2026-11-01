@@ -8,6 +8,18 @@ The Stata implementation runs without Python, R, internet access or an external 
 
 **CCC is not a test of parallel trends. HC1 is not cluster robust. Nonrejection does not prove a coefficient restriction.** These programs report a selected specification under maintained assumptions, not a known true model. See [inference limitations](docs/inference_limitations.md).
 
+## Choose your implementation
+
+The CCC test is available in three native implementations. Each version has its own source files and installation instructions.
+
+| Software | Source code | Installation and first example |
+| :--- | :--- | :--- |
+| **Stata** | [Stata package and Mata routines](stata/) | [Install and run in Stata](#install-and-run-stata) |
+| **R** | [R package](r/) | [Install and run in R](#install-and-run-r) |
+| **Python** | [Python package](python/) | [Install and run in Python](#install-and-run-python) |
+
+The three implementations are part of this same repository. The language percentages shown by GitHub are automated classifications and do not reflect which implementations are supported.
+
 ## Install and run Stata
 
 After this repository has been published at `SunnyRKarim/ccctest`, installation directly from GitHub is possible in Stata:
