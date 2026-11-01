@@ -1,0 +1,20 @@
+name: Native R and Python checks
+on: [push, pull_request]
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install './python[test,plot]'
+      - run: pytest python/tests -q
+  r:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+      - run: R CMD build --no-build-vignettes r
+      - run: R CMD check --no-manual --ignore-vignettes ccctest_0.1.0.tar.gz
+# Stata is validated locally with a licensed executable; not claimed as CI-tested.
