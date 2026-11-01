@@ -1,0 +1,7 @@
+# GitHub Linguist: classify native source files for repository language statistics.
+# These are programming files, not generated artifacts or vendored code.
+*.ado linguist-language=Stata linguist-detectable
+*.mata linguist-language=Stata linguist-detectable
+*.do linguist-language=Stata linguist-detectable
+*.R linguist-language=R linguist-detectable
+*.py linguist-language=Python linguist-detectable
