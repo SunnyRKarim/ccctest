@@ -1,0 +1,14 @@
+Package: ccctest
+Type: Package
+Title: Common Causality of Covariates Tests and Trend Diagnostics
+Version: 0.1.0
+Author: Sunny Karim (CCC method and project maintenance); Matthew D. Webb (software development collaboration); OpenAI Codex (software implementation assistance)
+Maintainer: Sunny Karim <SunnyKarim@cmail.carleton.ca>
+Description: Native unweighted Common Causality of Covariates Wald tests,
+    additive second-stage Holm selection, and auditable untreated trend
+    diagnostics. Based on Sunny Karim's September 2026 manuscript. These
+    diagnostics do not establish parallel trends or estimate treatment effects.
+License: file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: stats, graphics, grDevices

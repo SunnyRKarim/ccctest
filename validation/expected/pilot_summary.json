@@ -1,0 +1,30 @@
+[
+  {
+    "outcome": "homogeneous",
+    "replications": 20,
+    "failures": 0,
+    "correct_fraction": 0.75,
+    "mc_standard_error": 0.09682458365518543
+  },
+  {
+    "outcome": "region",
+    "replications": 20,
+    "failures": 0,
+    "correct_fraction": 0.8,
+    "mc_standard_error": 0.08944271909999157
+  },
+  {
+    "outcome": "time",
+    "replications": 20,
+    "failures": 0,
+    "correct_fraction": 0.95,
+    "mc_standard_error": 0.04873397172404484
+  },
+  {
+    "outcome": "twoway",
+    "replications": 20,
+    "failures": 0,
+    "correct_fraction": 0.9,
+    "mc_standard_error": 0.06708203932499368
+  }
+]

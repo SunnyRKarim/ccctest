@@ -1,0 +1,333 @@
+. do stata/tests/cross_language.do
+
+. version 18
+
+. clear all
+
+. set more off
+
+. adopath ++ "stata"
+  [1]              "stata"
+  [2]  (BASE)      "C:\Program Files\Stata18\ado\base/"
+  [3]  (SITE)      "C:\Program Files\Stata18\ado\site/"
+  [4]              "."
+  [5]  (PERSONAL)  "<USER>\ado\personal/"
+  [6]  (PLUS)      "<USER>\ado\plus/"
+  [7]  (OLDPLACE)  "c:\ado/"
+
+. program define exportmatrix
+  1.     args matrixname filename
+  2.     preserve
+  3.     clear
+  4.     svmat double `matrixname'
+  5.     export delimited using "`filename'", replace novarnames
+  6.     restore
+  7. end
+
+. foreach fixture in original unbalanced {
+  2.     import delimited "validation/fixtures/`fixture'.csv", clear asdouble
+  3.     local vars y_state x
+  4.     if "`fixture'"=="unbalanced" local vars y x z
+  5.     foreach vce in HC1 OLS {
+  6.         ccctest `vars', group(group) time(year) gvar(gvar) vce(`vce') alltes
+> ts
+  7.         matrix result=e(tests)
+  8.         exportmatrix result artifacts/stata_`fixture'_`vce'_tests.csv
+  9.         preserve
+ 10.         generate byte mask=e(sample)
+ 11.         export delimited mask using "artifacts/stata_`fixture'_`vce'_mask.cs
+> v", replace novarnames
+ 12.         restore
+ 13.         foreach restriction in R1 R_region R_time {
+ 14.             matrix result=e(`restriction')
+ 15.             exportmatrix result artifacts/stata_`fixture'_`vce'_`restriction
+> '.csv
+ 16.         }
+ 17.         foreach stage in 1 2 {
+ 18.             matrix result=e(slopes`stage')
+ 19.             exportmatrix result artifacts/stata_`fixture'_`vce'_b`stage'.csv
+ 20.             matrix result=e(V_slopes`stage')
+ 21.             exportmatrix result artifacts/stata_`fixture'_`vce'_V`stage'.csv
+ 22.             matrix result=e(intercepts`stage')
+ 23.             exportmatrix result artifacts/stata_`fixture'_`vce'_theta`stage'
+> .csv
+ 24.         }
+ 25.     }
+ 26. }
+(encoding automatically selected: ISO-8859-1)
+(14 vars, 1,800 obs)
+stata/_ccc_engine.mata
+CCC selected specification: region (holm_region_only)
+
+             |            W             Q             p        p_holm
+-------------+--------------------------------------------------------
+     omnibus |      37.7415            23      .0271458             .
+      region |      14.3879             5      .0133245      .0266489
+        time |      8.70465             5       .121441       .121441
+
+             |       reject     performed          used
+-------------+-----------------------------------------
+     omnibus |            1             1             1
+      region |            1             1             1
+        time |            0             1             1
+number of observations will be reset to 3
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 3.
+file artifacts/stata_original_HC1_tests.csv saved
+(file artifacts/stata_original_HC1_mask.csv not found)
+file artifacts/stata_original_HC1_mask.csv saved
+number of observations will be reset to 23
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 23.
+(file artifacts/stata_original_HC1_R1.csv not found)
+file artifacts/stata_original_HC1_R1.csv saved
+number of observations will be reset to 5
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 5.
+(file artifacts/stata_original_HC1_R_region.csv not found)
+file artifacts/stata_original_HC1_R_region.csv saved
+number of observations will be reset to 5
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 5.
+(file artifacts/stata_original_HC1_R_time.csv not found)
+file artifacts/stata_original_HC1_R_time.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_original_HC1_b1.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+file artifacts/stata_original_HC1_V1.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+file artifacts/stata_original_HC1_theta1.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_original_HC1_b2.csv saved
+number of observations will be reset to 11
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 11.
+file artifacts/stata_original_HC1_V2.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+(file artifacts/stata_original_HC1_theta2.csv not found)
+file artifacts/stata_original_HC1_theta2.csv saved
+CCC selected specification: region (holm_region_only)
+
+             |            W             Q             p        p_holm
+-------------+--------------------------------------------------------
+     omnibus |      39.6882            23      .0166524             .
+      region |      15.7421             5     .00762035      .0152407
+        time |      8.99193             5       .109387       .109387
+
+             |       reject     performed          used
+-------------+-----------------------------------------
+     omnibus |            1             1             1
+      region |            1             1             1
+        time |            0             1             1
+number of observations will be reset to 3
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 3.
+file artifacts/stata_original_OLS_tests.csv saved
+(file artifacts/stata_original_OLS_mask.csv not found)
+file artifacts/stata_original_OLS_mask.csv saved
+number of observations will be reset to 23
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 23.
+(file artifacts/stata_original_OLS_R1.csv not found)
+file artifacts/stata_original_OLS_R1.csv saved
+number of observations will be reset to 5
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 5.
+(file artifacts/stata_original_OLS_R_region.csv not found)
+file artifacts/stata_original_OLS_R_region.csv saved
+number of observations will be reset to 5
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 5.
+(file artifacts/stata_original_OLS_R_time.csv not found)
+file artifacts/stata_original_OLS_R_time.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_original_OLS_b1.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+file artifacts/stata_original_OLS_V1.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+file artifacts/stata_original_OLS_theta1.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_original_OLS_b2.csv saved
+number of observations will be reset to 11
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 11.
+file artifacts/stata_original_OLS_V2.csv saved
+number of observations will be reset to 24
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 24.
+(file artifacts/stata_original_OLS_theta2.csv not found)
+file artifacts/stata_original_OLS_theta2.csv saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 562 obs)
+CCC selected specification: twoway (holm_both)
+
+             |            W             Q             p        p_holm
+-------------+--------------------------------------------------------
+     omnibus |      174.599            28   3.92792e-23             .
+      region |       40.318             6   3.94444e-07   3.94444e-07
+        time |      67.7267             6   1.19509e-12   2.39018e-12
+
+             |       reject     performed          used
+-------------+-----------------------------------------
+     omnibus |            1             1             1
+      region |            1             1             1
+        time |            1             1             1
+number of observations will be reset to 3
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 3.
+file artifacts/stata_unbalanced_HC1_tests.csv saved
+(file artifacts/stata_unbalanced_HC1_mask.csv not found)
+file artifacts/stata_unbalanced_HC1_mask.csv saved
+number of observations will be reset to 28
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 28.
+(file artifacts/stata_unbalanced_HC1_R1.csv not found)
+file artifacts/stata_unbalanced_HC1_R1.csv saved
+number of observations will be reset to 6
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 6.
+(file artifacts/stata_unbalanced_HC1_R_region.csv not found)
+file artifacts/stata_unbalanced_HC1_R_region.csv saved
+number of observations will be reset to 6
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 6.
+(file artifacts/stata_unbalanced_HC1_R_time.csv not found)
+file artifacts/stata_unbalanced_HC1_R_time.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_unbalanced_HC1_b1.csv saved
+number of observations will be reset to 30
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 30.
+file artifacts/stata_unbalanced_HC1_V1.csv saved
+number of observations will be reset to 15
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 15.
+file artifacts/stata_unbalanced_HC1_theta1.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_unbalanced_HC1_b2.csv saved
+number of observations will be reset to 14
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 14.
+file artifacts/stata_unbalanced_HC1_V2.csv saved
+number of observations will be reset to 15
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 15.
+(file artifacts/stata_unbalanced_HC1_theta2.csv not found)
+file artifacts/stata_unbalanced_HC1_theta2.csv saved
+CCC selected specification: twoway (holm_both)
+
+             |            W             Q             p        p_holm
+-------------+--------------------------------------------------------
+     omnibus |      169.087            28   4.09706e-22             .
+      region |       47.173             6   1.72823e-08   1.72823e-08
+        time |      103.406             6   4.88027e-20   9.76053e-20
+
+             |       reject     performed          used
+-------------+-----------------------------------------
+     omnibus |            1             1             1
+      region |            1             1             1
+        time |            1             1             1
+number of observations will be reset to 3
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 3.
+file artifacts/stata_unbalanced_OLS_tests.csv saved
+(file artifacts/stata_unbalanced_OLS_mask.csv not found)
+file artifacts/stata_unbalanced_OLS_mask.csv saved
+number of observations will be reset to 28
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 28.
+(file artifacts/stata_unbalanced_OLS_R1.csv not found)
+file artifacts/stata_unbalanced_OLS_R1.csv saved
+number of observations will be reset to 6
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 6.
+(file artifacts/stata_unbalanced_OLS_R_region.csv not found)
+file artifacts/stata_unbalanced_OLS_R_region.csv saved
+number of observations will be reset to 6
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 6.
+(file artifacts/stata_unbalanced_OLS_R_time.csv not found)
+file artifacts/stata_unbalanced_OLS_R_time.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_unbalanced_OLS_b1.csv saved
+number of observations will be reset to 30
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 30.
+file artifacts/stata_unbalanced_OLS_V1.csv saved
+number of observations will be reset to 15
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 15.
+file artifacts/stata_unbalanced_OLS_theta1.csv saved
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+file artifacts/stata_unbalanced_OLS_b2.csv saved
+number of observations will be reset to 14
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 14.
+file artifacts/stata_unbalanced_OLS_V2.csv saved
+number of observations will be reset to 15
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 15.
+(file artifacts/stata_unbalanced_OLS_theta2.csv not found)
+file artifacts/stata_unbalanced_OLS_theta2.csv saved
+
+. foreach fixture in original plots {
+  2.     import delimited "validation/fixtures/`fixture'.csv", clear asdouble
+  3.     local vars y_state x
+  4.     if "`fixture'"=="plots" local vars ipt x x2
+  5.     ccctrends `vars', group(group) time(year) gvar(gvar) nograph ///
+>         csv("artifacts/stata_`fixture'_series.csv") replace
+  6.     matrix result=r(pairs)
+  7.     preserve
+  8.     clear
+  9.     svmat double result, names(col)
+ 10.     export delimited using "artifacts/stata_`fixture'_pairs.csv", replace
+ 11.     restore
+ 12. }
+(encoding automatically selected: ISO-8859-1)
+(14 vars, 1,800 obs)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+file artifacts/stata_original_pairs.csv saved
+(encoding automatically selected: ISO-8859-1)
+(9 vars, 1,080 obs)
+number of observations will be reset to 14
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 14.
+file artifacts/stata_plots_pairs.csv saved
+
+. file open passed using artifacts/stata_cross_passed.txt, write replace
+
+. file write passed "Cross-language exports completed" _n
+
+. file close passed
+
+. exit,clear
+
+end of do-file

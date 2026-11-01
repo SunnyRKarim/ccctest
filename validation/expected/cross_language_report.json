@@ -1,0 +1,418 @@
+[
+  {
+    "name": "stata original HC1 tests",
+    "max_absolute_difference": 1.4210854715202004e-14
+  },
+  {
+    "name": "stata original HC1 p-values",
+    "max_absolute_difference": 6.800116025829084e-16
+  },
+  {
+    "name": "stata original HC1 sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original HC1 omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original HC1 region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original HC1 time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original HC1 b1",
+    "max_absolute_difference": 1.3322676295501878e-15
+  },
+  {
+    "name": "stata original HC1 V1",
+    "max_absolute_difference": 1.249000902703301e-16
+  },
+  {
+    "name": "stata original HC1 theta1",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "stata original HC1 b2",
+    "max_absolute_difference": 6.661338147750939e-16
+  },
+  {
+    "name": "stata original HC1 V2",
+    "max_absolute_difference": 7.28583859910259e-17
+  },
+  {
+    "name": "stata original HC1 theta2",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "r original HC1 tests",
+    "max_absolute_difference": 6.394884621840902e-14
+  },
+  {
+    "name": "r original HC1 p-values",
+    "max_absolute_difference": 2.7755575615628914e-16
+  },
+  {
+    "name": "r original HC1 sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original HC1 omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original HC1 region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original HC1 time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original HC1 b1",
+    "max_absolute_difference": 4.6629367034256575e-15
+  },
+  {
+    "name": "r original HC1 V1",
+    "max_absolute_difference": 5.828670879282072e-16
+  },
+  {
+    "name": "r original HC1 theta1",
+    "max_absolute_difference": 4.440892098500626e-14
+  },
+  {
+    "name": "r original HC1 b2",
+    "max_absolute_difference": 4.440892098500626e-15
+  },
+  {
+    "name": "r original HC1 V2",
+    "max_absolute_difference": 8.760353553682876e-17
+  },
+  {
+    "name": "r original HC1 theta2",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "stata original OLS tests",
+    "max_absolute_difference": 2.1316282072803006e-14
+  },
+  {
+    "name": "stata original OLS p-values",
+    "max_absolute_difference": 5.828670879282072e-16
+  },
+  {
+    "name": "stata original OLS sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original OLS omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original OLS region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original OLS time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata original OLS b1",
+    "max_absolute_difference": 1.3322676295501878e-15
+  },
+  {
+    "name": "stata original OLS V1",
+    "max_absolute_difference": 1.1102230246251565e-16
+  },
+  {
+    "name": "stata original OLS theta1",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "stata original OLS b2",
+    "max_absolute_difference": 6.661338147750939e-16
+  },
+  {
+    "name": "stata original OLS V2",
+    "max_absolute_difference": 5.898059818321144e-17
+  },
+  {
+    "name": "stata original OLS theta2",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "r original OLS tests",
+    "max_absolute_difference": 6.394884621840902e-14
+  },
+  {
+    "name": "r original OLS p-values",
+    "max_absolute_difference": 6.800116025829084e-16
+  },
+  {
+    "name": "r original OLS sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original OLS omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original OLS region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original OLS time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r original OLS b1",
+    "max_absolute_difference": 4.6629367034256575e-15
+  },
+  {
+    "name": "r original OLS V1",
+    "max_absolute_difference": 4.579669976578771e-16
+  },
+  {
+    "name": "r original OLS theta1",
+    "max_absolute_difference": 4.440892098500626e-14
+  },
+  {
+    "name": "r original OLS b2",
+    "max_absolute_difference": 4.440892098500626e-15
+  },
+  {
+    "name": "r original OLS V2",
+    "max_absolute_difference": 9.71445146547012e-17
+  },
+  {
+    "name": "r original OLS theta2",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "stata unbalanced HC1 tests",
+    "max_absolute_difference": 2.8421709430404007e-13
+  },
+  {
+    "name": "stata unbalanced HC1 p-values",
+    "max_absolute_difference": 3.510422170777041e-19
+  },
+  {
+    "name": "stata unbalanced HC1 sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced HC1 omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced HC1 region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced HC1 time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced HC1 b1",
+    "max_absolute_difference": 1.1102230246251565e-15
+  },
+  {
+    "name": "stata unbalanced HC1 V1",
+    "max_absolute_difference": 1.942890293094024e-16
+  },
+  {
+    "name": "stata unbalanced HC1 theta1",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "stata unbalanced HC1 b2",
+    "max_absolute_difference": 6.661338147750939e-16
+  },
+  {
+    "name": "stata unbalanced HC1 V2",
+    "max_absolute_difference": 6.938893903907228e-17
+  },
+  {
+    "name": "stata unbalanced HC1 theta2",
+    "max_absolute_difference": 1.4210854715202004e-14
+  },
+  {
+    "name": "r unbalanced HC1 tests",
+    "max_absolute_difference": 2.8421709430404007e-13
+  },
+  {
+    "name": "r unbalanced HC1 p-values",
+    "max_absolute_difference": 1.9587636905255695e-21
+  },
+  {
+    "name": "r unbalanced HC1 sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced HC1 omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced HC1 region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced HC1 time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced HC1 b1",
+    "max_absolute_difference": 5.995204332975845e-15
+  },
+  {
+    "name": "r unbalanced HC1 V1",
+    "max_absolute_difference": 1.942890293094024e-16
+  },
+  {
+    "name": "r unbalanced HC1 theta1",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "r unbalanced HC1 b2",
+    "max_absolute_difference": 5.995204332975845e-15
+  },
+  {
+    "name": "r unbalanced HC1 V2",
+    "max_absolute_difference": 1.1188966420050406e-16
+  },
+  {
+    "name": "r unbalanced HC1 theta2",
+    "max_absolute_difference": 5.1514348342607263e-14
+  },
+  {
+    "name": "stata unbalanced OLS tests",
+    "max_absolute_difference": 1.9895196601282805e-13
+  },
+  {
+    "name": "stata unbalanced OLS p-values",
+    "max_absolute_difference": 2.4444841462167074e-20
+  },
+  {
+    "name": "stata unbalanced OLS sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced OLS omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced OLS region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced OLS time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "stata unbalanced OLS b1",
+    "max_absolute_difference": 1.1102230246251565e-15
+  },
+  {
+    "name": "stata unbalanced OLS V1",
+    "max_absolute_difference": 6.245004513516506e-17
+  },
+  {
+    "name": "stata unbalanced OLS theta1",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "stata unbalanced OLS b2",
+    "max_absolute_difference": 6.661338147750939e-16
+  },
+  {
+    "name": "stata unbalanced OLS V2",
+    "max_absolute_difference": 5.551115123125783e-17
+  },
+  {
+    "name": "stata unbalanced OLS theta2",
+    "max_absolute_difference": 1.4210854715202004e-14
+  },
+  {
+    "name": "r unbalanced OLS tests",
+    "max_absolute_difference": 3.979039320256561e-13
+  },
+  {
+    "name": "r unbalanced OLS p-values",
+    "max_absolute_difference": 4.566036981292713e-22
+  },
+  {
+    "name": "r unbalanced OLS sample mask",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced OLS omnibus restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced OLS region restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced OLS time restrictions",
+    "max_absolute_difference": 0.0
+  },
+  {
+    "name": "r unbalanced OLS b1",
+    "max_absolute_difference": 5.995204332975845e-15
+  },
+  {
+    "name": "r unbalanced OLS V1",
+    "max_absolute_difference": 8.613986260397333e-17
+  },
+  {
+    "name": "r unbalanced OLS theta1",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "r unbalanced OLS b2",
+    "max_absolute_difference": 5.995204332975845e-15
+  },
+  {
+    "name": "r unbalanced OLS V2",
+    "max_absolute_difference": 1.0234868508263162e-16
+  },
+  {
+    "name": "r unbalanced OLS theta2",
+    "max_absolute_difference": 5.1514348342607263e-14
+  },
+  {
+    "name": "stata original plot series",
+    "max_absolute_difference": 7.105427357601002e-15
+  },
+  {
+    "name": "stata original all pair data",
+    "max_absolute_difference": 1.0658141036401503e-14
+  },
+  {
+    "name": "r original plot series",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "r original all pair data",
+    "max_absolute_difference": 4.973799150320701e-14
+  },
+  {
+    "name": "stata plots plot series",
+    "max_absolute_difference": 1.2331469179116539e-11
+  },
+  {
+    "name": "stata plots all pair data",
+    "max_absolute_difference": 2.4485302674293052e-11
+  },
+  {
+    "name": "r plots plot series",
+    "max_absolute_difference": 1.731326193521454e-11
+  },
+  {
+    "name": "r plots all pair data",
+    "max_absolute_difference": 3.1946001399774104e-11
+  }
+]

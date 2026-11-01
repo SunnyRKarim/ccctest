@@ -1,0 +1,11 @@
+message: "If you use this software, please cite this repository and the associated research."
+cff-version: 1.2.0
+title: "ccctest: Common Causality of Covariates Tests and Trend Diagnostics"
+type: software
+authors:
+  - family-names: Karim
+    given-names: Sunny
+    affiliation: Carleton University
+version: 0.1.0
+repository-code: "https://github.com/SunnyRKarim/ccctest"
+url: "https://github.com/SunnyRKarim/ccctest"

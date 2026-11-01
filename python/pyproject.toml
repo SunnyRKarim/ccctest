@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccctest"
+version = "0.1.0"
+description = "Common Causality of Covariates tests and untreated trend diagnostics"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "pandas>=2,<4", "scipy>=1.10,<2"]
+readme = "README.md"
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7,<4"]
+test = ["pytest>=7,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

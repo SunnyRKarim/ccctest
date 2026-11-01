@@ -1,0 +1,32 @@
+%\VignetteIndexEntry{CCC tests and trend diagnostics}
+%\VignetteEngine{utils::Sweave}
+\documentclass{article}
+\usepackage{Sweave}
+\begin{document}
+\title{Common Causality of Covariates: a worked example}
+\maketitle
+This package implements Sunny Karim's CCC procedure. It tests restrictions on
+untreated covariate coefficients, not parallel trends. HC1 is the default to
+match the supplied simulation code; it is not cluster robust.
+<<setup>>=
+library(ccctest)
+d <- read.csv(system.file("extdata","original.csv",package="ccctest"))
+fit <- ccctest(y_state ~ x, d, "group", "year", "gvar")
+print(fit)
+@
+The region-only Holm rejection selects the region specification. Selection is
+not proof of the maintained model. Both auxiliary fits retain cell intercepts.
+<<trends>>=
+tr <- ccc_trends(y_state ~ x, d, "group", "year", "gvar")
+head(tr$series)
+head(tr$pairs[, c("pred_st","pred_sb","pred_ct","pred_cb")])
+@
+All four predictions in a comparison use the treated target-period empirical
+covariate distribution. The supplied design has only two common preperiods,
+so the integrated panel contains one change. Plot with \verb|plot(tr, panels="all")|.
+For a richer covariate basis use \verb|y_state ~ x + I(x^2) + factor(category)|.
+The package integrates means of basis columns, not transformations of means.
+No observation weights, cluster inference, survey design, ATT estimator or
+confidence bands are provided. A singular requested hypothesis is undetermined.
+Installation: \verb|R CMD INSTALL r|. Uninstallation: \verb|remove.packages("ccctest")|.
+\end{document}

@@ -1,0 +1,11 @@
+# Statistical contract
+
+Unweighted observations only. Require explicit cohort (0 = never treated, not a valid adoption date) or an untreated indicator. Unknown metadata is excluded, not interpreted as never treated. Cohorts are constant within policy region; status is constant within cell and cannot reverse. Restrict to untreated rows and complete cases, expand a single covariate basis, and use exactly those rows in both stages. Numeric ordered dates and string/numeric policy regions are supported. Repeated person IDs do not address serial dependence.
+
+For U observed cells and K basis columns, Stage 1 has saturated intercepts and slopes: P1=U(K+1), Q1=K(U-1). Stage 2 retains cell intercepts, all region slopes, and time deviations except the first observed date: P2=U+K(S+T-1), QR=K(S-1), QT=K(T-1). Region restrictions compare slopes to the first region; time restrictions set deviations to zero. This additive auxiliary model is not the unrestricted cell-slope plot model.
+
+The production engines accumulate centered within-cell cross-products, absorb cell intercepts, and retain their contribution to degrees of freedom. HC1 uses n/(n-P); OLS uses pooled SSE/(n-P). Slope covariance is sufficient for the restrictions. Intercepts are recovered as mean(y)-mean(z)'beta_cell. Rank deficiencies are never repaired by silently dropping columns. Cross-product condition checks reject unreliable solves; conservative resource limits bound dense slope covariance allocations.
+
+W=(Rb)'(RVR')^-1(Rb), with chi-square upper-tail p and the nominal Q. No F-reference, cluster/survey estimator, generalized inverse or ridge. Singular required design/restriction covariance gives undetermined. Reject p <= alpha. Stage 1 nonrejection selects homogeneous; unused alltests failures do not invalidate that selection. After rejection, Holm adjusts region/time only: sorted adjusted p=min(1,2p1), min(1,max(2p1,p2)). Region only selects region, time only selects time, both selects twoway (holm_both), neither selects twoway (holm_neither). A required Stage 2 failure gives undetermined.
+
+Cross-language tolerances, fixed before comparison: coefficients, covariance and Wald values atol=1e-8, rtol=1e-8; p-values atol=1e-12, rtol=1e-8. No tolerance modifies the decision boundary. Zero floating-point tails mean numerical underflow, not mathematical zero.

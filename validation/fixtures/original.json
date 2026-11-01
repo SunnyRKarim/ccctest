@@ -1,0 +1,24 @@
+{
+  "seed": 5000001,
+  "n_cell": 50,
+  "N": 1800,
+  "N_untreated": 1200,
+  "U": 24,
+  "P1": 48,
+  "P2": 35,
+  "Q": [
+    23,
+    5,
+    5
+  ],
+  "basis": [
+    "x"
+  ],
+  "never": 0,
+  "reference_cell": [
+    1,
+    1
+  ],
+  "reference_period": 1,
+  "sha256": "8455171d6dfe7d3a7a4e1c9a0531d6d018e3dcd730c361eacc5409068d184393"
+}

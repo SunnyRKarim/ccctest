@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CCC portable result contract",
+  "type": "object",
+  "required": ["selected", "reason", "status", "tests", "diagnostics"],
+  "properties": {
+    "selected": {"enum": ["homogeneous", "region", "time", "twoway", "undetermined"]},
+    "status": {"enum": ["ok", "undetermined"]},
+    "reason": {"enum": ["stage1_nonrejection", "holm_region_only", "holm_time_only", "holm_both", "holm_neither", "stage1_failure", "stage2_failure"]},
+    "tests": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {"type": "object", "required": ["hypothesis", "W", "Q", "p", "p_holm", "reject", "performed", "used"],
+        "properties": {
+          "hypothesis": {"enum": ["omnibus", "region", "time"]},
+          "W": {"type": ["number", "null"]}, "Q": {"type": "integer", "minimum": 1},
+          "p": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "p_holm": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "reject": {"type": ["boolean", "null"]},
+          "performed": {"type": "boolean"}, "used": {"type": "boolean"}
+        }
+      }
+    },
+    "diagnostics": {"type": "object"}
+  },
+  "description": "CSV/matrix adapters use numeric 0/1 flags and empty/missing values. JSON serializations must convert nonfinite missing values to null. Slopes are block-major, then basis-column order."
+}

@@ -1,0 +1,14 @@
+v 3
+d ccctest: Common Causality of Covariates and untreated trends
+d CCC testing package. Method and public repository: Sunny Karim (2026).
+f ccctest.ado
+f ccctrends.ado
+f _ccc_prepare.ado
+f _ccc_engine.ado
+F _ccc_engine.mata
+F _ccc_trends.mata
+f ccctest.sthlp
+f ccctrends.sthlp
+f examples/original.csv
+f examples/plots.csv
+f examples/conference_demo.do

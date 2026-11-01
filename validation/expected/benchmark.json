@@ -1,0 +1,45 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 167 Stepping 1, GenuineIntel",
+  "logical_cpus": 16,
+  "physical_memory_bytes": 68376023040,
+  "method": "RSS sampled each 10ms; baseline after fixture allocation; Python process only; single sequential run per size",
+  "runs": [
+    {
+      "n_cell": 50,
+      "N": 1800,
+      "N_untreated": 1200,
+      "U": 24,
+      "K": 1,
+      "P1": 48,
+      "P2": 35,
+      "seconds": 0.013343099970370531,
+      "baseline_rss_bytes": 133140480,
+      "peak_sampled_rss_bytes": 133140480
+    },
+    {
+      "n_cell": 5000,
+      "N": 180000,
+      "N_untreated": 120000,
+      "U": 24,
+      "K": 1,
+      "P1": 48,
+      "P2": 35,
+      "seconds": 0.11742380005307496,
+      "baseline_rss_bytes": 148951040,
+      "peak_sampled_rss_bytes": 158437376
+    },
+    {
+      "n_cell": 30000,
+      "N": 1080000,
+      "N_untreated": 720000,
+      "U": 24,
+      "K": 1,
+      "P1": 48,
+      "P2": 35,
+      "seconds": 0.7316378999967128,
+      "baseline_rss_bytes": 221212672,
+      "peak_sampled_rss_bytes": 323186688
+    }
+  ]
+}
